@@ -72,5 +72,10 @@ extension MenuViewController: UITableViewDataSource {
         tableView.deselectRow(at: indexPath, animated: true)
         
         hamburgerViewController.contentViewController = self.viewControllers[indexPath.row]
+        
+        UIView.animate(withDuration: 0.3, animations: {
+            self.hamburgerViewController.leftMarginConstraint.constant = 0
+            self.hamburgerViewController.view.layoutIfNeeded()
+        })
     }
 }
